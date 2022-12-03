@@ -11,8 +11,8 @@ services:
       - 5432:5432
     environment:
       POSTGRES_DB: mailsorter_db
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
       POSTGRES_HOST_AUTH_METHOD: trust
 
   pgadmin:
