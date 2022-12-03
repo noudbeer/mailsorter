@@ -5,7 +5,8 @@ services:
     container_name: mailsorter_db
     image: postgres:latest
     volumes:
-      - ./db:/var/lib/postgresql/data_mailsorter
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db:/var/lib/postgres/data_mailsorter
     ports:
       - 5432:5432
     environment:
