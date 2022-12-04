@@ -1,4 +1,5 @@
 import socket
+from IA.nlp import getTopicByText
 
 def donnerPersonneCompetente(listenSocket):
     print("Le serveur est prêt à donner la personne. " + "Il est en attente de demandes de client(s) sur le port . \n" + str(listenSocket.getsockname()[0]) + str(listenSocket.getsockname()[1]))
@@ -7,7 +8,8 @@ def donnerPersonneCompetente(listenSocket):
             (clientsocket, address) = listenSocket.accept()
             try:
                 messageDuServeur = clientsocket.recv(1024).decode()
-                clientsocket.send(messageDuServeur.encode())
+                topic = getTopicByText(messageDuServeur)
+                clientsocket.send(topic.encode())
             finally:
                 clientsocket.close()
     finally:
