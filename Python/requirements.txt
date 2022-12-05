@@ -1,0 +1,5 @@
+nltk==3.7
+gensim==4.2.0
+pandas==1.4.3
+odfpy==1.4.1
+openpyxl==3.0.10
