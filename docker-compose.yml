@@ -7,6 +7,7 @@ services:
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./db:/var/lib/postgres/data_mailsorter
+
     ports:
       - 5432:5432
     environment:
@@ -23,3 +24,6 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: password
+
+
+
