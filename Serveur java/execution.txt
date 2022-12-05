@@ -1,0 +1,34 @@
+construire l'image docker
+mvn clean package
+
+docker build -t mailsoter
+
+docker image ls
+
+
+exécution de l'image docker
+docker run -p 5000:8080 mailsorter
+docker run -d -p 5000:8080 mailsorter
+
+
+Pousser l'image docker vers le hub
+docker login
+
+tagger l'image
+docker tag image username/repository:tag
+docker tag mailsorter agossoud/mailsorter:0.0.1-SNAPSHOT
+
+Pousser l'image docker sur le hub
+docker push agossoud/mailsorter:0.0.1-SNAPSHOT
+
+Extraire l'image du docker hub et l'exécuter
+docker run -p 5000:8080 agossoud/mailsorter:0.0.1-SNAPSHOT
+
+
+
+
+
+En utilisant du MAVEN pour le docker
+mvn package dockerfile:build
+
+mvn dockerfile:push
