@@ -44,7 +44,7 @@ public class ControllerUserTopic {
 	
 	@RequestMapping(value="/create", method = RequestMethod.POST, produces= "application/json")
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public UserTopic addPTToBoard( @RequestBody Map<String, String> body) {
+	public UserTopic addUserTopic( @RequestBody Map<String, String> body) {
 		
 		String name = body.get("name");
 		String topic = body.get("topic");
@@ -82,7 +82,7 @@ public class ControllerUserTopic {
 	}
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public Iterable<UserTopic> getAllBuys() {
+	public Iterable<UserTopic> getAllUsersTopics() {
 		return userTopicService.findAll();
 	}
 	
@@ -126,13 +126,13 @@ public class ControllerUserTopic {
 	
 
 	@GetMapping("/{id}")
-	public ResponseEntity<UserTopic> getBuyById(@PathVariable Long id) {
+	public ResponseEntity<UserTopic> getUserTopicById(@PathVariable Long id) {
 		UserTopic userTopic = userTopicService.findById(id);
 		return new ResponseEntity<UserTopic>(userTopic, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteBuy(@PathVariable Long id) {
+	public ResponseEntity<String> deleteUserTopic(@PathVariable Long id) {
 		userTopicService.delete(id);
 		return new ResponseEntity<String>("UserTopic supprimé avec succès. Merci au revoir !", HttpStatus.OK);
 	}
